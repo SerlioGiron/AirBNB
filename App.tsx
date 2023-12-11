@@ -2,16 +2,26 @@
 import React from 'react';
 import {
   View,
-  Text,
   StyleSheet,
   Image,
   TouchableOpacity,
   TextInput,
   ScrollView,
-  FlatList
+  FlatList,
+  Dimensions
 } from 'react-native';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {NavigationContainer} from '@react-navigation/native';
+import { Block, Text, theme, Button as GaButton } from 'galio-framework';
+
+import { Button } from './components';
+import { Images, nowTheme } from './constants';
+import { HeaderHeight } from './constants/utils';
+
+const { width, height } = Dimensions.get('screen');
+
+const thumbMeasure = (width - 48 - 32) / 3;
+
 
 // Create a functional component for the Travel App UI
 const TravelApp = () => {
@@ -109,8 +119,10 @@ const ProfileScreen = () => {
   return (
     <View style={styles.screenContainer}>
       <View style={styles.container}>
+
+      
       {/* Profile Picture and User Info */}
-      <View style={styles.profileHeader}>
+      {/* <View style={styles.profileHeader}>
         <Image
           source={require('./images/descarga.jpeg')} // Replace with the user's profile picture
           style={styles.profileImage}
@@ -119,10 +131,10 @@ const ProfileScreen = () => {
           <Text style={styles.userName}>John Doe</Text>
           <Text style={styles.userEmail}>john.doe@example.com</Text>
         </View>
-      </View>
+      </View> */}
 
       {/* Bookings Section */}
-      <View style={styles.bookingsSection}>
+      {/* <View style={styles.bookingsSection}>
         <Text style={styles.sectionTitle}>Your Bookings</Text>
         <FlatList
           data={bookingsData}
@@ -135,7 +147,7 @@ const ProfileScreen = () => {
             </View>
           )}
         />
-      </View>
+      </View> */}
 
       {/* Add more sections or customize based on your needs */}
     </View>
@@ -162,6 +174,51 @@ const App = () => {
 
 // Styles
 const styles = StyleSheet.create({
+
+  profileContainer: {
+    width,
+    height,
+    padding: 0,
+    zIndex: 1
+  },
+  profileBackground: {
+    width,
+    height: height * 0.6
+  },
+
+  info: {
+    marginTop: 30,
+    paddingHorizontal: 10,
+    height: height * 0.8
+  },
+  avatarContainer: {
+    position: 'relative',
+    marginTop: -80
+  },
+  avatar: {
+    width: thumbMeasure,
+    height: thumbMeasure,
+    borderRadius: 50,
+    borderWidth: 0
+  },
+  nameInfo: {
+    marginTop: 35
+  },
+  thumb: {
+    borderRadius: 4,
+    marginVertical: 4,
+    alignSelf: 'center',
+    width: thumbMeasure,
+    height: thumbMeasure
+  },
+  social: {
+    width: nowTheme.SIZES.BASE * 3,
+    height: nowTheme.SIZES.BASE * 3,
+    borderRadius: nowTheme.SIZES.BASE * 1.5,
+    justifyContent: 'center',
+    zIndex: 99,
+    marginHorizontal: 5
+  },
 
   profileHeader: {
     flexDirection: 'row',
