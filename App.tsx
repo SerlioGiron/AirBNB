@@ -17,6 +17,7 @@ import { Block, Text, theme, Button as GaButton } from 'galio-framework';
 import { Button } from './components';
 import { Images, nowTheme } from './constants';
 import { HeaderHeight } from './constants/utils';
+import MainNavigator from './src/navigation/MainNavigator';
 
 const { width, height } = Dimensions.get('screen');
 
@@ -160,16 +161,18 @@ const Tab = createBottomTabNavigator();
 
 // Main App Component with Bottom Tabs Navigator
 const App = () => {
-  return (
-    <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="Explore" component={TravelApp} />
-        <Tab.Screen name="Accommodations" component={AccommodationsScreen} />
-        <Tab.Screen name="Favorites" component={FavoritesScreen} />
-        <Tab.Screen name="Profile" component={ProfileScreen} />
-      </Tab.Navigator>
-    </NavigationContainer>
-  );
+  // return (
+  //   <NavigationContainer>
+  //     <Tab.Navigator>
+  //       <Tab.Screen name="Explore" component={TravelApp} />
+  //       <Tab.Screen name="Accommodations" component={AccommodationsScreen} />
+  //       <Tab.Screen name="Favorites" component={FavoritesScreen} />
+  //       <Tab.Screen name="Profile" component={ProfileScreen} />
+  //     </Tab.Navigator>
+  //   </NavigationContainer>
+  // );
+
+  return <MainNavigator/>
 };
 
 // Styles
