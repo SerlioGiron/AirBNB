@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import ModalDropdown from 'react-native-modal-dropdown';
 import { Block, Text } from 'galio-framework';
 
-import Icon from './Icon';
+import Icon from './Icon2';
 import { nowTheme } from '../constants';
 
 class DropDown extends React.Component {

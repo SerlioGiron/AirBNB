@@ -1,34 +1,21 @@
 import React from 'react';
-import * as Font from 'expo-font';
-import { createIconSetFromIcoMoon } from '@expo/vector-icons';
-import { Icon } from 'galio-framework';
+import {Image, TouchableOpacity} from 'react-native';
+import icons from '../src/constants/icons';
+// import { TouchableOpacity } from 'react-native-gesture-handler';
 
-import nowConfig from '../assets/config/now.json';
-const NowExtra = require('../assets/font/now.ttf');
-const IconNowExtra = createIconSetFromIcoMoon(nowConfig, 'NowExtra');
+const Icon = ({onPress, icon, style, size = 32}) => {
+  const image =  (
+    <Image
+      source={icons[icon]}
+      style={[{width: size, height: size, resizeMode: 'cover'}, style]}
+    />
+  );
 
-class IconExtra extends React.Component {
-  state = {
-    fontLoaded: false
-  };
-
-  async componentDidMount() {
-    await Font.loadAsync({ NowExtra: NowExtra });
-    this.setState({ fontLoaded: true });
+  if (onPress) {
+    return <TouchableOpacity onPress={onPress}>{image}</TouchableOpacity>
   }
 
-  render() {
-    const { name, family, ...rest } = this.props;
+  return image;
+};
 
-    if (name && family && this.state.fontLoaded) {
-      if (family === 'NowExtra') {
-        return <IconNowExtra name={name} family={family} {...rest} />;
-      }
-      return <Icon name={name} family={family} {...rest} />;
-    }
-
-    return null;
-  }
-}
-
-export default IconExtra;
+export default Icon;

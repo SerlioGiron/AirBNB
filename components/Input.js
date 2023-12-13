@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 
 import { Input } from "galio-framework";
 
-import Icon from './Icon';
+import Icon from './Icon2';
 import { nowTheme } from "../constants";
 
 class ArInput extends React.Component {

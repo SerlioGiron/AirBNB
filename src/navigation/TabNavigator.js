@@ -1,30 +1,93 @@
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import React from "react";
-import HomeScreen from "../screens/HomeScreen";
-import ProfileScreen from "../screens/ProfileScreen";
-import { Image } from "react-native";
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import React from 'react';
+import HomeScreen from '../screens/HomeScreen';
+import ProfileScreen from '../screens/ProfileScreen';
+import Icon from '../../components/Icon';
+import {StyleSheet, Animated} from 'react-native';
+import {colors, sizes} from '../constants/theme';
 
+
+
+const tabs = [
+    {
+      name: 'Home',
+      screen: HomeScreen,
+    },
+    {
+      name: 'User',
+      screen: ProfileScreen,
+    },
+  ];
 
 const Tab = createBottomTabNavigator();
 
 const TabNavigator = () => {
-    return (<Tab.Navigator initialRouteName="Home" screenOptions={{
-        headerShown: false,
-        tabBarShowLabel: false,
-        
-    }}>
-        <Tab.Screen name="Home" component={HomeScreen} options={{
-            tabBarIcon: () => {
-                return <Image source={{
-                    
-                }} />
-            }
-        }}/>
-        <Tab.Screen name="Profile" component={ProfileScreen}/>
-    </Tab.Navigator>
+    const offsetAnimation = React.useRef(new Animated.Value(0)).current;
+    return (
+      <>
+        <Tab.Navigator
+          initialRouteName="Home"
+          screenOptions={{
+            headerShown: false,
+            tabBarShowLabel: false,
+          }}>
+          {tabs.map(({name, screen}, index) => {
+            return (
+              <Tab.Screen
+                key={name}
+                name={name}
+                component={screen}
+                options={{
+                  tabBarIcon: ({focused}) => {
+                    return (
+                      <Icon
+                        icon={name}
+                        size={40}
+                        style={{
+                          tintColor: focused ? colors.primary : colors.gray,
+                        }}
+                      />
+                    );
+                  },
+                }}
+                listeners={{
+                  focus: () => {
+                    Animated.spring(offsetAnimation, {
+                      toValue: index * (sizes.width / tabs.length),
+                      useNativeDriver: true,
+                    }).start();
+                  },
+                }}
+              />
+            );
+          })}
+        </Tab.Navigator>
+        <Animated.View
+          style={[
+            styles.indicator,
+            {
+              transform: [
+                {
+                  translateX: offsetAnimation,
+                },
+              ],
+            },
+          ]}
+        />
+      </>
     );
-}
-
-
-
-export default TabNavigator;
+  };
+  
+  const styles = StyleSheet.create({
+    indicator: {
+      position: 'absolute',
+      width: 10,
+      height: 2,
+      left: sizes.width / tabs.length / 2 - 5,
+      bottom: 45,
+      backgroundColor: colors.primary,
+      zIndex: 100,
+    },
+  });
+  
+  export default TabNavigator;

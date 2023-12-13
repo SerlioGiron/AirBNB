@@ -3,7 +3,7 @@ import { withNavigation } from '@react-navigation/compat';
 import { TouchableOpacity, StyleSheet, Platform, Dimensions, Keyboard } from 'react-native';
 import { Button, Block, NavBar, Text, theme, Button as GaButton } from 'galio-framework';
 
-import Icon from './Icon';
+import Icon from './Icon2';
 import Input from './Input';
 import Tabs from './Tabs';
 import nowTheme from '../constants/Theme';

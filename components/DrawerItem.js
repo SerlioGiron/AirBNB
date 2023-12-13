@@ -1,7 +1,7 @@
 import { Block, Text, theme } from 'galio-framework';
 import { Linking, StyleSheet, TouchableOpacity } from 'react-native';
 
-import Icon from './Icon';
+import Icon from './Icon2';
 import React from 'react';
 import nowTheme from '../constants/Theme';
 
