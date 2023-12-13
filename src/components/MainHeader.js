@@ -20,7 +20,7 @@ const MainHeader = ({title}) => {
 export default MainHeader;
 
 const styles = StyleSheet.create({
-    container:{
+    container:{ 
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
