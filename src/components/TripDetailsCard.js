@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, StyleSheet, Text} from 'react-native';
-import {colors, sizes, spacing} from '../constants/theme';
+import {colors, sizes, spacing} from '../../constants/theme';
 import * as Animatable from 'react-native-animatable';
 
 const TripDetailsCard = ({trip}) => {

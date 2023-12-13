@@ -1,6 +1,6 @@
 import React from 'react';
 import {Button, Text, View, StyleSheet} from 'react-native';
-import {sizes, spacing} from '../constants/theme';
+import {sizes, spacing} from '../../constants/theme';
 
 const SectionHeader = ({title, onPress, buttonTitle = 'Button'}) => {
   return (
