@@ -1,12 +1,12 @@
 import React from 'react';
 import {View, StyleSheet, ScrollView} from 'react-native';
-import {colors} from '../constants/theme';
-import MainHeader from '../components/MainHeader';
-import ScreenHeader from '../components/ScreenHeader';
-import TopPlacesCarousel from '../components/TopPlacesCarousel';
-import {PLACES, TOP_PLACES} from '../data';
-import SectionHeader from '../components/SectionHeader';
-import TripsList from '../components/TripsList';
+import {colors} from '.scr/components/constants/theme';
+import MainHeader from '.scr/components/MainHeader';
+import ScreenHeader from '.scr/components/ScreenHeader';
+import TopPlacesCarousel from '.scr/components/TopPlacesCarousel';
+import {PLACES, TOP_PLACES} from '.scr/data';
+import SectionHeader from '.scr/components/SectionHeader';
+import TripsList from '.scr/components/TripsList';
 
 const HomeScreen = () => {
   return (
