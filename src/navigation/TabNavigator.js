@@ -2,7 +2,7 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import React from 'react';
 import HomeScreen from '../screens/HomeScreen';
 import ProfileScreen from '../screens/ProfileScreen';
-import Icon from '../../components/Icon';
+import Icon from '../components/Icon';
 import {StyleSheet, Animated} from 'react-native';
 import {colors, sizes} from '../constants/theme';
 
